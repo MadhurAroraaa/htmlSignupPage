@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script type="text/javascript" src="validation.js" defer></script>
+
+
+</head>
+
+<body>
+
+    <div class="form_container">
+        <h1 class="heading">Login</h1>
+        <form id="form">
+            <div>
+                <div class="input-row">
+                    <label for="email">
+                        <img src="images/mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    </label>
+                    <input type="email" id="email" name="email" placeholder=" Email">
+                </div>
+                <small class="error" id="emailError"></small>
+            </div>
+            <div>
+                <div class="input-row">
+                    <label for="password">
+                        <img src="images/passkey_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    </label>
+                    <input type="password" name="password" id="password" placeholder=" Password">
+                    <span class="toggle-password" id="togglePassword" style="cursor:pointer; vertical-align:middle;">
+                        <svg id="eyePassword" xmlns="http://www.w3.org/2000/svg" height="20" width="20"
+                            viewBox="0 0 20 20" fill="#888">
+                            <path
+                                d="M10 4.5c-4.5 0-7.5 4.5-7.5 5.5s3 5.5 7.5 5.5 7.5-4.5 7.5-5.5-3-5.5-7.5-5.5zm0 9c-2.5 0-4.5-2-4.5-3.5s2-3.5 4.5-3.5 4.5 2 4.5 3.5-2 3.5-4.5 3.5zm0-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
+                        </svg>
+                    </span>
+                </div>
+                <small class="error" id="passwordError"></small>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="accountalready">New User ? <a href="signup.html">Signup</a></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            let passwordVisible = false;
+            togglePassword.addEventListener('click', function () {
+                passwordVisible = !passwordVisible;
+                passwordInput.type = passwordVisible ? 'text' : 'password';
+                togglePassword.classList.toggle('active', passwordVisible);
+                document.getElementById('eyePassword').innerHTML = passwordVisible
+                    ? '<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10c0-1 3-5.5 8-5.5s8 4.5 8 5.5-3 5.5-8 5.5S2 11 2 10zm8 3.5c2.5 0 4.5-2 4.5-3.5s-2-3.5-4.5-3.5-4.5 2-4.5 3.5 2 3.5 4.5 3.5zm0-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>'
+                    : '<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 4.5c-4.5 0-7.5 4.5-7.5 5.5s3 5.5 7.5 5.5 7.5-4.5 7.5-5.5-3-5.5-7.5-5.5zm0 9c-2.5 0-4.5-2-4.5-3.5s2-3.5 4.5-3.5 4.5 2 4.5 3.5-2 3.5-4.5 3.5zm0-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>';
+            });
+        });
+    </script>
+
+</body>
+
+</html>
